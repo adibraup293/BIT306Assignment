@@ -1,15 +1,11 @@
 <app-header></app-header>
 <div class="toolbar">
   <main>
-    <button mat-raised-button class="toolbar-btn">Test Center Manager</button>
-    <button mat-raised-button class="toolbar-btn">Tester</button>
-    <button mat-raised-button class="toolbar-btn">Patient</button>
+    <a routerLink="/login"><button mat-raised-button class="toolbar-btn">Login</button></a>
+    <a routerLink="/centermanager-home"><button mat-raised-button class="toolbar-btn">Test Center Manager</button></a>
+    <a routerLink="/tester-home"><button mat-raised-button class="toolbar-btn">Tester</button></a>
+    <a routerLink="/patient-home"><button mat-raised-button class="toolbar-btn">Patient</button></a>
+    <router-outlet></router-outlet>
   </main>
 </div>
-<h1 class="main-title">Welcome to Covid Testing Information System (CTIS)!</h1>
-<div class=login-content>
-  <h2 class="main-title">Login</h2><br>
-  <b>Username: </b><input class="login-input" type="text"><br><br>
-  <b>Password: </b><input class="login-input" type="password"><br><br>
-  <button mat-stroked-button class="toolbar-btn"> Log In </button>
-</div>
+
