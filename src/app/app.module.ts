@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { TesterHomeComponent } from "./tester/tester-home/tester-home.component";
+import { EnterTestIDComponent} from "./tester/enter-test-id/enter-test-id.component";
 import { LoginComponent } from "./login/login.component";
 import { PatientHomeComponent } from "./patient/patient-home/patient-home.component";
 import { ViewTestingHistoryComponent} from "./patient/view-testing-history/view-testing-history.component"
@@ -20,6 +21,7 @@ import { from } from 'rxjs';
 const appRoutes:Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'tester-home', component: TesterHomeComponent},
+  {path: 'enter-test-id', component: EnterTestIDComponent},
   {path: 'patient-home', component: PatientHomeComponent},
   {path: 'view-testing-history', component: ViewTestingHistoryComponent},
   {path: 'manager-home', component: ManagerHomeComponent},
@@ -32,6 +34,7 @@ const appRoutes:Routes = [
     AppComponent,
     HeaderComponent,
     TesterHomeComponent,
+    EnterTestIDComponent,
     PatientHomeComponent,
     ViewTestingHistoryComponent,
     ManagerHomeComponent,
