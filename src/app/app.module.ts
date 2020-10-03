@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { TesterHomeComponent } from "./tester/tester-home/tester-home.component";
 import { LoginComponent } from "./login/login.component";
 import { PatientHomeComponent } from "./patient/patient-home/patient-home.component";
-import { ViewTestingHistoryComponent} from "./patient/view-testing-history/view-testing-history.component";
+import { ViewTestingHistoryComponent} from "./patient/view-testing-history/view-testing-history.component"
 import { ManagerHomeComponent} from "./TestCenterManager/manager-home.component";
 import { ManagerCreateTestCenterComponent} from "./TestCenterManager/TestCenterProfile/test-center-profile.component";
 import { ManagerRecordTestOfficerComponent} from "./TestCenterManager/RecordTestOfficer/record-officer.component";
@@ -33,9 +33,10 @@ const appRoutes:Routes = [
     HeaderComponent,
     TesterHomeComponent,
     PatientHomeComponent,
+    ViewTestingHistoryComponent,
     ManagerHomeComponent,
     ManagerCreateTestCenterComponent,
-    ManagerRecordTestOfficerComponent,
+    ManagerRecordTestOfficerComponent
   ],
   imports: [
     BrowserModule,
