@@ -9,6 +9,8 @@ import { ViewTestingHistoryComponent} from "./patient/view-testing-history/view-
 import { ManagerHomeComponent} from "./TestCenterManager/manager-home.component";
 import { ManagerCreateTestCenterComponent} from "./TestCenterManager/TestCenterProfile/test-center-profile.component";
 import { ManagerRecordTestOfficerComponent} from "./TestCenterManager/RecordTestOfficer/record-officer.component";
+import { ManageKitHomeComponent} from "./TestCenterManager/ManageTestKit/manage-kit-home.component";
+import { RegisterKitComponent} from "./TestCenterManager/ManageTestKit/RegisterNewKit/register-kit.component";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from "./header/header.component";
@@ -27,6 +29,8 @@ const appRoutes:Routes = [
   {path: 'manager-home', component: ManagerHomeComponent},
   {path: 'create-test-center', component: ManagerCreateTestCenterComponent},
   {path: 'record-test-officer', component: ManagerRecordTestOfficerComponent},
+  {path: 'manage-kit', component: ManageKitHomeComponent},
+  {path: 'register-kit', component: RegisterKitComponent},
 ];
 
 @NgModule({
@@ -39,7 +43,9 @@ const appRoutes:Routes = [
     ViewTestingHistoryComponent,
     ManagerHomeComponent,
     ManagerCreateTestCenterComponent,
-    ManagerRecordTestOfficerComponent
+    ManagerRecordTestOfficerComponent,
+    ManageKitHomeComponent,
+    RegisterKitComponent
   ],
   imports: [
     BrowserModule,
