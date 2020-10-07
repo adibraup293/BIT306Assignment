@@ -7,7 +7,7 @@
 
 .id-input{
   margin: auto;
-  width: 200px;
+  width: 300px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -15,10 +15,9 @@
   margin-left: auto;
   margin-right: auto;
   text-align: left;
-  width: 90%;
+  width: 96%;
   border: 1px solid black;
-  padding-right: 10px;
-  padding-left: 10px;
+  border-collapse: collapse;
 }
 
 .back-btn{
@@ -34,7 +33,7 @@
   color:white;
   margin: 5px;
   background-color: black;
-  width: 300px;
+  width: 200px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
 }
@@ -44,4 +43,19 @@
   text-align: center;
   height: 60px;
   padding: 50px 0;
+}
+
+.row-border{
+  border: 1px solid black;
+}
+
+.cell-padding, .symptomps-cell{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.symptomps-cell{
+  width: 500px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
