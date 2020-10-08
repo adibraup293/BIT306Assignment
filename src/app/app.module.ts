@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { TesterHomeComponent } from "./tester/tester-home/tester-home.component";
 import { EnterTestIDComponent} from "./tester/enter-test-id/enter-test-id.component";
 import { UpdateTestResultComponent } from "./tester/update-test-result/update-test-result.component";
+import { SelectPatientComponent } from "./tester/select-patient/select-patient.component";
+import { RecordTestExistingComponent } from "./tester/record-new-test/existing-patient/record-test-existing.component";
+import { RecordTestNewComponent } from "./tester/record-new-test/new-patient/record-test-new.component";
 import { LoginComponent } from "./login/login.component";
 import { PatientHomeComponent } from "./patient/patient-home/patient-home.component";
 import { ViewTestingHistoryComponent} from "./patient/view-testing-history/view-testing-history.component"
@@ -19,13 +22,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { RouterModule, Routes } from "@angular/router";
-import { from } from 'rxjs';
 
 const appRoutes:Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'tester-home', component: TesterHomeComponent},
   {path: 'enter-test-id', component: EnterTestIDComponent},
   {path: 'update-test-result', component: UpdateTestResultComponent},
+  {path: 'select-patient', component: SelectPatientComponent},
+  {path: 'record-test-existing', component: RecordTestExistingComponent},
+  {path: 'record-test-new', component: RecordTestNewComponent},
   {path: 'patient-home', component: PatientHomeComponent},
   {path: 'view-testing-history', component: ViewTestingHistoryComponent},
   {path: 'manager-home', component: ManagerHomeComponent},
@@ -42,6 +47,9 @@ const appRoutes:Routes = [
     TesterHomeComponent,
     EnterTestIDComponent,
     UpdateTestResultComponent,
+    SelectPatientComponent,
+    RecordTestExistingComponent,
+    RecordTestNewComponent,
     PatientHomeComponent,
     ViewTestingHistoryComponent,
     ManagerHomeComponent,
