@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-manager-home',
+  selector: 'kit-register',
   templateUrl: './register-kit.component.html',
   styleUrls: ['./register-kit.component.css']
 })

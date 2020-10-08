@@ -15,6 +15,9 @@ import { ManagerCreateTestCenterComponent} from "./TestCenterManager/TestCenterP
 import { ManagerRecordTestOfficerComponent} from "./TestCenterManager/RecordTestOfficer/record-officer.component";
 import { ManageKitHomeComponent} from "./TestCenterManager/ManageTestKit/manage-kit-home.component";
 import { RegisterKitComponent} from "./TestCenterManager/ManageTestKit/RegisterNewKit/register-kit.component";
+import { UpdateTestKitComponent} from "./TestCenterManager/ManageTestKit/UpdateTestKit/update-kit.component";
+import { GenerateTestReportOfficerComponent} from "./TestCenterManager/GenerateTestReport/generate-test-report.component";
+import { GenerateTestReportTesterComponent} from "./tester/generate-test-report/generate-test-report-tester.component";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from "./header/header.component";
@@ -38,6 +41,10 @@ const appRoutes:Routes = [
   {path: 'record-test-officer', component: ManagerRecordTestOfficerComponent},
   {path: 'manage-kit', component: ManageKitHomeComponent},
   {path: 'register-kit', component: RegisterKitComponent},
+  {path: 'update-kit', component: UpdateTestKitComponent},
+  {path: 'generate-report', component: GenerateTestReportOfficerComponent},
+  {path: 'generate-report-tester', component: GenerateTestReportTesterComponent}
+
 ];
 
 @NgModule({
@@ -56,7 +63,11 @@ const appRoutes:Routes = [
     ManagerCreateTestCenterComponent,
     ManagerRecordTestOfficerComponent,
     ManageKitHomeComponent,
-    RegisterKitComponent
+    RegisterKitComponent,
+    UpdateTestKitComponent,
+    GenerateTestReportOfficerComponent,
+    GenerateTestReportTesterComponent
+
   ],
   imports: [
     BrowserModule,
