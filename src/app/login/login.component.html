@@ -1,7 +1,30 @@
-<h1 class="main-title">Welcome to Covid Testing Information System (CTIS)!</h1>
-<div class=page-content>
-  <h2 class="main-title">Login</h2><br>
-  <b>Username: </b><input class="login-input" type="text" placeholder="Enter your username here..."><br><br>
-  <b>Password: </b><input class="login-input" type="password" placeholder="Enter your password here..."><br><br>
-  <button mat-stroked-button class="login-btn"> Log In </button>
-</div>
+<mat-card>
+  <h1 class="main-title">Welcome to Covid Testing Information System (CTIS)!</h1>
+  <form>
+    <div class=page-content>
+      <h2 class="main-title">Login</h2><br>
+      <mat-form-field>
+        <b>Username: </b>
+        <input
+          matInput
+          class="login-input"
+          type="text"
+          placeholder="Enter your username here..."
+          required><br><br>
+      </mat-form-field>
+      <mat-form-field>
+        <b>Password: </b>
+        <input
+          matInput
+          class="login-input"
+          type="password"
+          placeholder="Enter your password here..."
+          required><br><br>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        class="login-btn"
+        type="submit"> Log In </button>
+    </div>
+  </form>
+</mat-card>

@@ -24,6 +24,7 @@ import { HeaderComponent } from "./header/header.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatCardModule } from "@angular/material/card";
 import { RouterModule, Routes } from "@angular/router";
 
 const appRoutes:Routes = [
@@ -74,6 +75,7 @@ const appRoutes:Routes = [
     BrowserAnimationsModule,
     MatInputModule,
     MatToolbarModule,
+    MatCardModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
