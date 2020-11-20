@@ -1,27 +1,14 @@
-<h1 class="main-title">Select the test kit you wish to update</h1>
-<div class=enter-test-id-page-content>
-  <h2 class="main-title" >Enter test Kit ID</h2>
-  <input type="text" class="id-input" placeholder="Copy test kit ID and paste it here">
-  <a routerLink="/update-test-result"><button mat-raised-button class="select-btn">Select</button></a><br>
-  <h2 class="main-title" >Test Kit Inventory at Daniel Toh Hospital, Bukit Damansara</h2>
-  <table class="test-id-list">
-    <tr class="row-border">
-      <th class="cell-padding">Test Kit ID</th>
-      <th class="cell-padding">Kit Name</th>
-      <th class="cell-padding">Stock</th>
-    </tr>
-    <tr class="row-border">
-      <td class="cell-padding">KIT-001</td>
-      <td class="cell-padding">Cotton Buds</td>
-      <td class="cell-padding">130</td>
-    </tr>
-    <tr class="row-border">
-      <td class="cell-padding">KIT-002</td>
-      <td class="cell-padding">Surgical Face Mask</td>
-      <td class="cell-padding">50</td>
-    </tr>
-  </table>
-</div>
+<!-- <h1 class="main-title">Select the test kit you wish to update</h1> -->
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      Select the test kit you wish to update
+    </mat-expansion-panel-header>
+    <p>Test expansion panel</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
 <div class="page-footer">
   <a routerLink="/manager-home"><button mat-raised-button class="back-btn">Back to Manager Home</button></a>
 </div>

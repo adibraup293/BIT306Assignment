@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-manager-registerTestOfficer',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
 })
 
 export class ManagerRecordTestOfficerComponent {
-
+  onCreateTCOProfile(form: NgForm){
+    if (form.invalid){
+      return;
+    }
+  }
 }

@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { TesterHomeComponent } from "./tester/tester-home/tester-home.component";
 import { EnterTestIDComponent} from "./tester/enter-test-id/enter-test-id.component";
@@ -52,6 +54,7 @@ const appRoutes:Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
+    LoginComponent,
     TesterHomeComponent,
     EnterTestIDComponent,
     UpdateTestResultComponent,
@@ -72,6 +75,8 @@ const appRoutes:Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    MatExpansionModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatToolbarModule,

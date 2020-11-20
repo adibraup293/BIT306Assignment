@@ -30,3 +30,14 @@
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
 }
+
+mat-card{
+  background-color: #ff9306;
+  width: 50%;
+  margin: auto;
+}
+
+mat-form-field,
+textarea{
+  width: 100%;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-manager-createTestCenter',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
 })
 
 export class ManagerCreateTestCenterComponent {
-
+  onCreateProfile(form: NgForm){
+    if (form.invalid){
+      return;
+    }
+  }
 }
