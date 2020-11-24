@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 app.post("/api/testkits", (req, res, next) => {
   const testKit = new TestKit({
     testKitName: req.body.testkitname,
-    testKitStock: req.body.testkitname
+    testKitStock: req.body.testkitstock
   })
 
   testKit.save().then(createdTestKit => {
