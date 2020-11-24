@@ -11,7 +11,7 @@
 
 <mat-card>
   <h1 class="main-title" >Record a Test Center Officer profile!</h1>
-  <form (submit) = "onCreateTCOProfile(createTCOProfile)" #createTCOProfile = "ngForm">
+  <form (submit) = "onCreateTCOProfile(testCOForm)" #testCOForm = "ngForm">
     <div class=page-content>
       <!-- <h6 class="main-title">Enter the Test Centre Officer username below</h6><br> -->
       <mat-form-field>
@@ -32,7 +32,7 @@
           matInput
           name="password"
           type="password"
-          placeholder="Enter test centre password here..."
+          placeholder="Enter test centre officer password here..."
           ngModel
           #testCentreProfilePasswordInput="ngModel"
           required><br><br>

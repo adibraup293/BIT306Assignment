@@ -79,44 +79,33 @@ app.delete('/api/testkits/:id', (req, res, next) => {
 });
 
 //Test Centre
-app.post("/api/testcentres", (req, res, next) => {
-  const testCentre = new TestCentre({
-    testCentreName: req.body.testCentreName
-  })
+ app.post("/api/testcentres",(req, res, next) => {
+   const testCentre = new TestCentre({
+     TestCentreName: req.body.testcentrename
+   })
 
-  TestCentre.save().then(createdtestCentre => {
-    console.log(testCentre)
+   testCentre.save().then(createdTestCentre => {
+     console.log(testCentre)
+     res.status(200).json({
+       message: 'Test Centre added successfully',
+       testCentreId: createdTestCentre._id
+     });
+   });
+
+   console.log(testCentre);
+   res.status(201).json({
+     message: 'Test Centre added successfully'
+   });
+ });
+
+ app.get('/api/testcentres',(req, res, next)=>{
+  TestCentre.find().then(documents => {
     res.status(200).json({
-      message: 'Test Centre added successfully',
-      testCentreId: createdtestCentre._id
+      message: 'Test Centre fetched successfully',
+      testCentres: documents
     });
   });
-
-  console.log(testCentre);
-  res.status(201).json({
-    message: 'Test Centre added successfully'
-  });
 });
-
-
-// app.post("/api/testCentres",(req, res, next) => {
-//   const testCentre = new TestCentre({
-//     TestCentreName: req.body.TestCentreName
-//   })
-
-//   testCentre.save().then(createdTestCentre => {
-//     console.log(testCentre)
-//     res.status(200).json({
-//       message: 'Test Centre added successfully',
-//       testCentreId: createdTestCentre._id
-//     });
-//   });
-
-//   console.log(testCentre);
-//   res.status(201).json({
-//     message: 'TestCentre added successfully'
-//   });
-// });
 
 //login signup
 app.post('/api/user/signup', (req,res,next) => {
@@ -131,7 +120,7 @@ app.post('/api/user/signup', (req,res,next) => {
     user.save()
     .then(result => {
       res.status(201).json({
-        message: 'User created',
+        message: 'Test Centre Officer profile created',
         result: result
       });
     })

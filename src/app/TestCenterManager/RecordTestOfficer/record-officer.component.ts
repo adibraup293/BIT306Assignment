@@ -10,6 +10,7 @@ import {AuthService} from '../auth/auth.service';
 
 export class ManagerRecordTestOfficerComponent {
   constructor(public authService: AuthService){}
+
   onCreateTCOProfile(form: NgForm){
     if (form.invalid){
       return;

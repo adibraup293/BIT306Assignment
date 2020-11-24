@@ -25,7 +25,7 @@ export class TestCentreService {
   addTestCentre(testcentrename: string){
     const testCentre: TestCentre = {id: null, testcentrename: testcentrename};
     this.http
-    .post<{message:string, testCentreId: string}> ('http://localhost:3000/api/testCentres', testCentre)
+    .post<{message:string, testCentreId: string}> ('http://localhost:3000/api/testcentres', testCentre)
     .subscribe((responseData) => {
       const id = responseData.testCentreId;
       testCentre.id = id;
@@ -38,7 +38,7 @@ export class TestCentreService {
 
   // to retrieve the testCentre
   getTestCentres() {
-    this.http.get<{message: string, testCentre: any}>('http://localhost:3000/api/testCentres/')
+    this.http.get<{message: string, testCentre: any}>('http://localhost:3000/api/testcentres/')
       .pipe(map((testCentreData) => {
         return testCentreData.testCentre.map(testCentre => {
           return {

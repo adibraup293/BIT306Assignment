@@ -20,7 +20,7 @@ export class ManagerCreateTestCenterComponent implements OnInit {
 
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if(paramMap.has('postId')) {
+      if(paramMap.has('testCentreId')) {
         this.mode = 'edit';
         this.testCentreId = paramMap.get('testCentreId');
         this.testCentre = this.testCentreService.getTestcentre(this.testCentreId);
@@ -32,7 +32,7 @@ export class ManagerCreateTestCenterComponent implements OnInit {
     });
   }
 
-  onCreateProfile(form: NgForm){
+  onSaveTestCentre(form: NgForm){
     if (form.invalid){
       return;
     }
