@@ -29,7 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api/testkits", checkAuth, (req, res, next) => {
+app.post("/api/testkits", (req, res, next) => {
   const testKit = new TestKit({
     testKitName: req.body.testkitname,
     testKitStock: req.body.testkitstock
@@ -49,7 +49,7 @@ app.post("/api/testkits", checkAuth, (req, res, next) => {
   });
 });
 
-app.put("/api/testkits/:id",  checkAuth, (req, res, next) => {
+app.put("/api/testkits/:id", (req, res, next) => {
   const testKit = new TestKit({
     _id: req.body.id,
     testKitName: req.body.testkitname,
@@ -70,7 +70,7 @@ app.get('/api/testkits',(req, res, next)=>{
   });
 });
 
-app.delete('/api/testkits/:id', checkAuth, (req, res, next) => {
+app.delete('/api/testkits/:id', (req, res, next) => {
   TestKit.deleteOne({_id: req.params.id}).then(result => {
     console.log(result);
     res.status(200).json({message: "Deleted"});

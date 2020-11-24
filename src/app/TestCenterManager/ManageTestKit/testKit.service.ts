@@ -34,12 +34,12 @@ export class TestKitsService{
 
   // to retrieve the testkit
   getTestKits() {
-    this.http.get<{message: string, testkits: any}>('http://localhost:3000/api/posts/')
+    this.http.get<{message: string, testKits: any}>('http://localhost:3000/api/testkits/')
       .pipe(map((testKitData) => {
-        return testKitData.testkits.map(testKit => {
+        return testKitData.testKits.map(testKit => {
           return {
-            testkitname: testKit.title,
-            testkitstock: testKit.content,
+            testkitname: testKit.testkitname,
+            testkitstock: testKit.testkitstock,
             id: testKit._id
           };
         });
