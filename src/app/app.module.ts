@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './auth/auth-interceptor';
 
 import { TesterHomeComponent } from "./tester/tester-home/tester-home.component";
 import { EnterTestIDComponent} from "./tester/enter-test-id/enter-test-id.component";
@@ -81,9 +83,10 @@ const appRoutes:Routes = [
     MatInputModule,
     MatToolbarModule,
     MatCardModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

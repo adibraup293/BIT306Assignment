@@ -1,9 +1,36 @@
-<h1 class="main-title" >Record a Test Center Officer profile!</h1><br>
-<div class=page-content>
-  <h2 class="main-title" >Please enter the details below</h2><br>
-  <b>Test Kit name: </b><input class="entryfield-input" type="text" placeholder="Enter the Test Officer username here..."><br><br>
-  <b>Stock: </b><input class="stock-entryfield-input" type="text" placeholder="Enter amount here..."><br><br>
-  <button mat-raised-button class ="create-btn">Register Test Kit</button><br><br><br><br>
-  <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
-  <router-outlet></router-outlet>
-</div>
+<mat-card>
+  <h1 class="main-title">Welcome to Covid Testing Information System (CTIS)!</h1>
+  <form (submit) = "onCreateTestKit(testKitForm)" #testKitForm = "ngForm">
+    <div class=page-content>
+      <h2 class="main-title">Register Test Kit</h2><br>
+      <mat-form-field>
+        <input
+          matInput
+          name="testkitname"
+          type="text"
+          placeholder="Enter Test Kit name here..."
+          ngModel
+          #testKitNameInput="ngModel"
+          required><br><br>
+          <mat-error *ngIf="testKitNameInput.invalid">Please enter the test kit name</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          name="teskitstock"
+          type="text"
+          placeholder="Enter the Test Kit stock here..."
+          ngModel
+          #testKitStockInput="ngModel"
+          required
+          ><br><br>
+          <mat-error *ngIf="testKitStockInput.invalid">Please enter the test kit stock</mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        class="login-btn"
+        type="submit"> Register Test Kit </button>
+    </div>
+  </form>
+</mat-card>
