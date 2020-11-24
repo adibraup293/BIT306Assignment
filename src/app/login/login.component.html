@@ -6,14 +6,13 @@
       <mat-form-field>
         <input
           matInput
-          name="email"
-          type="email"
+          name="username"
           placeholder="Enter your username here..."
           ngModel
           #emailInput="ngModel"
           required
-          email><br><br>
-          <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
+          ><br><br>
+          <mat-error *ngIf="emailInput.invalid">Please enter your username</mat-error>
       </mat-form-field>
 
       <mat-form-field>

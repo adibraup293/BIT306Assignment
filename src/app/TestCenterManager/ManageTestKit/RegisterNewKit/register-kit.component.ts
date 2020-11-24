@@ -10,7 +10,7 @@ import {TestKitsService} from '../testKit.service';
   styleUrls: ['./register-kit.component.css']
 })
 
-export class RegisterKitComponent {
+export class RegisterKitComponent implements OnInit {
 
   testKit: TestKit;
   private mode = 'create';

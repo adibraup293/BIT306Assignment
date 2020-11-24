@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {AuthInterceptor} from './auth/auth-interceptor';
+import {AuthInterceptor} from './TestCenterManager/auth/auth-interceptor';
 
 import { TesterHomeComponent } from "./tester/tester-home/tester-home.component";
 import { EnterTestIDComponent} from "./tester/enter-test-id/enter-test-id.component";
@@ -28,6 +28,7 @@ import { HeaderComponent } from "./header/header.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import {MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from "@angular/material/card";
 import { RouterModule, Routes } from "@angular/router";
 //import { AppRoutingModule } from './app-routing.module';
@@ -83,6 +84,7 @@ import { RouterModule, Routes } from "@angular/router";
     BrowserAnimationsModule,
     MatInputModule,
     MatToolbarModule,
+    MatButtonModule,
     MatCardModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)

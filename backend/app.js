@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const TestKit = require('./models/testKit');
 const mongoose = require("mongoose");
-//const bcrypt = require ("bcrypt");
+const bcrypt = require ("bcrypt");
 const User = require("./models/user");
 const jwt = require('jsonwebtoken');
 const checkAuth = require('./middleware/check-auth');
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api/testkits", (req, res, next) => {
+app.post("/api/testkits", checkAuth, (req, res, next) => {
   const testKit = new TestKit({
     testKitName: req.body.testkitname,
     testKitStock: req.body.testkitstock
@@ -45,11 +45,11 @@ app.post("/api/testkits", (req, res, next) => {
 
   console.log(testKit);
   res.status(201).json({
-    message: 'TestKit added successfully'
+    message: 'Test Kit added successfully'
   });
 });
 
-app.put("/api/testkits/:id",  (req, res, next) => {
+app.put("/api/testkits/:id",  checkAuth, (req, res, next) => {
   const testKit = new TestKit({
     _id: req.body.id,
     testKitName: req.body.testkitname,
@@ -70,67 +70,69 @@ app.get('/api/testkits',(req, res, next)=>{
   });
 });
 
-app.delete('/api/testkits/:id', (req, res, next) => {
+app.delete('/api/testkits/:id', checkAuth, (req, res, next) => {
   TestKit.deleteOne({_id: req.params.id}).then(result => {
     console.log(result);
     res.status(200).json({message: "Deleted"});
   })
 });
 
-// app.post('/api/user/signup', (req,res,next) => {
-//   bcrypt.hash(req.body.password, 10)
-//   .then(hash =>{
-//     const user = new User({
-//       email: req.body.email,
-//       password: hash
-//     });
-//     user.save()
-//     .then(result => {
-//       res.status(201).json({
-//         message: 'User created',
-//         result: result
-//       });
-//     })
-//     .catch(err => {
-//       res.status(500).json({
-//         error:err
-//       });
-//     });
-//   });
-// });
+app.post('/api/user/signup', (req,res,next) => {
+  bcrypt.hash(req.body.password, 10)
+  .then(hash =>{
+    const user = new User({
+      username: req.body.username,
+      password: hash,
+      name: req.body.name,
+      position: req.body.position
+    });
+    user.save()
+    .then(result => {
+      res.status(201).json({
+        message: 'User created',
+        result: result
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        error:err
+      });
+    });
+  });
+});
 
-// app.post('/api/user/login', (req,res,next) => {
-//   let fetchedUser;
-//   User.findOne({email: req.body.email})
-//   .then(user => {
-//     if (!user){
-//       return res.status(401).json({
-//         message: 'Auth failed'
-//       });
-//     }
-//     fetchedUser = user
-//     return bcrypt.compare(req.body.password, user.password)
-//   })
-//   .then(result => {
-//     if (!result){
-//       return res.status(401).json({
-//         message: 'Auth failed'
-//       });
-//     }
-//     const token = jwt.sign(
-//       {email: fetchedUser.email, userId: fetchedUser._id},
-//       'secret_this_should_be_longer',
-//       {expiresIn: '1h'}
-//     );
-//     res.status(200).json({
-//       token: token
-//     })
-//   })
-//   .catch (err=> {
-//     return res.status(401).json({
-//       message: 'Auth failed'
-//     });
-//   })
-// })
+app.post('/api/user/login', (req,res,next) => {
+  let fetchedUser;
+  User.findOne({username: req.body.username})
+  .then(user => {
+    if (!user){
+      return res.status(401).json({
+        message: 'Auth failed'
+      });
+    }
+    fetchedUser = user
+    return bcrypt.compare(req.body.password, user.password)
+  })
+  .then(result => {
+    if (!result){
+      return res.status(401).json({
+        message: 'Auth failed'
+      });
+    }
+    const token = jwt.sign(
+      {username: fetchedUser.username, userId: fetchedUser._id},
+      'secret_this_should_be_longer',
+      {expiresIn: '1h'}
+    );
+    res.status(200).json({
+      token: token
+    })
+  })
+  .catch (err=> {
+    return res.status(401).json({
+      message: 'Auth failed'
+    });
+  })
+})
 
 module.exports = app;

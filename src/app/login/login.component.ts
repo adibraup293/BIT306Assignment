@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {AuthService} from '../auth/auth.service';
+import {AuthService} from '../TestCenterManager/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +16,6 @@ export class LoginComponent{
     if (form.invalid){
       return;
     }
-    this.authService.login(form.value.email, form.value.password);
+    this.authService.login(form.value.username, form.value.password);
   }
 }
