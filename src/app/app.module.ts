@@ -30,27 +30,28 @@ import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { RouterModule, Routes } from "@angular/router";
+//import { AppRoutingModule } from './app-routing.module';
 
-const appRoutes:Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'tester-home', component: TesterHomeComponent},
-  {path: 'enter-test-id', component: EnterTestIDComponent},
-  {path: 'update-test-result', component: UpdateTestResultComponent},
-  {path: 'select-patient', component: SelectPatientComponent},
-  {path: 'record-test-existing', component: RecordTestExistingComponent},
-  {path: 'record-test-new', component: RecordTestNewComponent},
-  {path: 'patient-home', component: PatientHomeComponent},
-  {path: 'view-testing-history', component: ViewTestingHistoryComponent},
-  {path: 'manager-home', component: ManagerHomeComponent},
-  {path: 'create-test-center', component: ManagerCreateTestCenterComponent},
-  {path: 'record-test-officer', component: ManagerRecordTestOfficerComponent},
-  {path: 'manage-kit', component: ManageKitHomeComponent},
-  {path: 'register-kit', component: RegisterKitComponent},
-  {path: 'update-kit', component: UpdateTestKitComponent},
-  {path: 'generate-report', component: GenerateTestReportOfficerComponent},
-  {path: 'generate-report-tester', component: GenerateTestReportTesterComponent}
+ const appRoutes:Routes = [
+   {path: 'login', component: LoginComponent},
+   {path: 'tester-home', component: TesterHomeComponent},
+   {path: 'enter-test-id', component: EnterTestIDComponent},
+   {path: 'update-test-result', component: UpdateTestResultComponent},
+   {path: 'select-patient', component: SelectPatientComponent},
+   {path: 'record-test-existing', component: RecordTestExistingComponent},
+   {path: 'record-test-new', component: RecordTestNewComponent},
+   {path: 'patient-home', component: PatientHomeComponent},
+   {path: 'view-testing-history', component: ViewTestingHistoryComponent},
+   {path: 'manager-home', component: ManagerHomeComponent},
+   {path: 'create-test-center', component: ManagerCreateTestCenterComponent},
+   {path: 'record-test-officer', component: ManagerRecordTestOfficerComponent},
+   {path: 'manage-kit', component: ManageKitHomeComponent},
+   {path: 'register-kit', component: RegisterKitComponent},
+   {path: 'update-kit', component: UpdateTestKitComponent},
+   {path: 'generate-report', component: GenerateTestReportOfficerComponent},
+   {path: 'generate-report-tester', component: GenerateTestReportTesterComponent}
 
-];
+ ];
 
 @NgModule({
   declarations: [

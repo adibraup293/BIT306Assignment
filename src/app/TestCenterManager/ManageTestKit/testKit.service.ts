@@ -16,51 +16,30 @@ export class TestKitsService{
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  // to fetch a post
+  // to fetch a TestKit
   getTestKit(id: string){
-    //fetch the object from posts array
-    return{...this.testKits.find(p => p.id === id)}; //check if post id is equal to id parameter
-  }
-
-  // testkitName:string;
-  // testKitStock: string;
-
-  getTestKitsUpdateListener(){
-    return this.testKitsUpdated.asObservable();
-  }
-
-  addTestKit(testKitName: string, testKitStock: string){
-    const testKit: TestKit = {id: null, testkitName: testKitName, testKitStock: testKitStock};
-    this.http
-    .post<{message:string, postId: string}> ('http://localhost:3000/api/testkits', testKit)
-    .subscribe((responseData) => {
-      const id = responseData.postId;
-      testKit.id = id;
-      console.log(responseData.message);
-      this.testKits.push(testKit);
-      this.testKitsUpdated.next([...this.testKits]);
-      // this.router.navigate(['/']);
-    });
+    //fetch the object from TestKit array
+    return{...this.testKits.find(p => p.id === id)}; //check if test kit id is equal to id parameter
   }
 
   // to make changes to a testkit and save those changes
   updateTestKit(id: string, testkitname: string, testkitstock:string){
-    const testKit: TestKit = {id: id, testkitName: testkitname, testKitStock: testkitstock};
+    const testKit: TestKit = {id: id, testkitname: testkitname, testkitstock: testkitstock};
     this.http.put('http://localhost:3000/api/testkits/' + id, testKit)
       .subscribe(response => {
         console.log(response);
         // this.router.navigate(['/']);
       });
-  }
+    }
 
-  // to retrieve the post
+  // to retrieve the testkit
   getTestKits() {
     this.http.get<{message: string, testKits: any}>('http://localhost:3000/api/testkits/')
-      .pipe(map((testkitData) => {
-        return testkitData.testKits.map(testKit => {
+      .pipe(map((testKitData) => {
+        return testKitData.testKits.map(testKit => {
           return {
-            testkitName: testKit.testkitName,
-            testkitStock: testKit.testkitStock,
+            testkitname: testKit.testkitname,
+            testkitstock: testKit.testkitstock,
             id: testKit._id
           };
         });
@@ -71,14 +50,33 @@ export class TestKitsService{
       })
   }
 
-  deletePost(testKitId: string){
+  getTestKitsUpdateListener(){
+    return this.testKitsUpdated.asObservable();
+  }
+
+  addTestKit(testkitname: string, testkitstock: string){
+    const testkit: TestKit = {id: null, testkitname: testkitname, testkitstock:testkitstock};
+    this.http
+    .post<{message:string, testKitId: string}> ('http://localhost:3000/api/testkits', testkit)
+    .subscribe((responseData) => {
+      const id = responseData.testKitId;
+      testkit.id = id;
+      console.log(responseData.message);
+      this.testKits.push(testkit);
+      this.testKitsUpdated.next([...this.testKits]);
+      //this.router.navigate(['/']);
+    });
+  }
+
+  deleteTestkit(testKitId: string){
     this.http.delete('http://localhost:3000/api/testkits/' + testKitId)
     .subscribe(() => {
-      const updatedTestkits = this.testKits.filter(post => post.id !== postId);
-      this.posts = updatedPosts;
-      this.postsUpdated.next([...this.posts]);
+      const updatedTestkits = this.testKits.filter(testKit => testKit.id !== testKitId);
+      this.testKits = updatedTestkits;
+      this.testKitsUpdated.next([...this.testKits]);
       console.log('Deleted');
     });
   }
+
 
 }

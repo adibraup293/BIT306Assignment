@@ -32,14 +32,14 @@ export class RegisterKitComponent {
     });
   }
 
-  onCreateTestKit(form: NgForm){
+  onSaveTestKit(form: NgForm){
     if (form.invalid){
       return;
     }
     if (this.mode === 'create'){
       this.testkitsService.addTestKit(form.value.testkitname, form.value.testkitstock);
     } else {
-      this.testkitsService.updatePost(this.testKitId, form.value.testkitname, form.value.testkitstock);
+      this.testkitsService.updateTestKit(this.testKitId, form.value.testkitname, form.value.testkitstock);
     }
 
     form.resetForm();
