@@ -48,6 +48,7 @@ import { RouterModule, Routes } from "@angular/router";
    {path: 'record-test-officer', component: ManagerRecordTestOfficerComponent},
    {path: 'manage-kit', component: ManageKitHomeComponent},
    {path: 'register-kit', component: RegisterKitComponent},
+   {path: 'edit/:testKitId', component: RegisterKitComponent},
    {path: 'update-kit', component: UpdateTestKitComponent},
    {path: 'generate-report', component: GenerateTestReportOfficerComponent},
    {path: 'generate-report-tester', component: GenerateTestReportTesterComponent}

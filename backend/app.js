@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const TestKit = require('./models/testKit');
+const TestCentre = require('./models/testCentre');
 const mongoose = require("mongoose");
 const bcrypt = require ("bcrypt");
 const User = require("./models/user");
@@ -77,6 +78,47 @@ app.delete('/api/testkits/:id', (req, res, next) => {
   })
 });
 
+//Test Centre
+app.post("/api/testcentres", (req, res, next) => {
+  const testCentre = new TestCentre({
+    testCentreName: req.body.testCentreName
+  })
+
+  TestCentre.save().then(createdtestCentre => {
+    console.log(testCentre)
+    res.status(200).json({
+      message: 'Test Centre added successfully',
+      testCentreId: createdtestCentre._id
+    });
+  });
+
+  console.log(testCentre);
+  res.status(201).json({
+    message: 'Test Centre added successfully'
+  });
+});
+
+
+// app.post("/api/testCentres",(req, res, next) => {
+//   const testCentre = new TestCentre({
+//     TestCentreName: req.body.TestCentreName
+//   })
+
+//   testCentre.save().then(createdTestCentre => {
+//     console.log(testCentre)
+//     res.status(200).json({
+//       message: 'Test Centre added successfully',
+//       testCentreId: createdTestCentre._id
+//     });
+//   });
+
+//   console.log(testCentre);
+//   res.status(201).json({
+//     message: 'TestCentre added successfully'
+//   });
+// });
+
+//login signup
 app.post('/api/user/signup', (req,res,next) => {
   bcrypt.hash(req.body.password, 10)
   .then(hash =>{

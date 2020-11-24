@@ -13,14 +13,14 @@
       <mat-form-field>
         <input
           matInput
-          name="testCentreNameInput"
+          name="testcentrename"
           type="text"
           placeholder="Enter test centre name here..."
-          ngModel
+          [ngModel]="testCentre?.testcentrename"
           minlength="3"
           #testCentreNameInput="ngModel"
           required><br><br>
-          <mat-error *ngIf="testCentreNameInput.invalid">Please enter a valid name</mat-error>
+          <mat-error *ngIf="testCentreNameInput.invalid">Please enter a test centre name</mat-error>
       </mat-form-field>
 
       <button

@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { TestCentre } from '../testcentre.model';
+import {TestCentreService} from '../testcentre.service';
 
 @Component({
   selector: 'app-manager-createTestCenter',
@@ -7,10 +10,33 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./test-center-profile.component.css']
 })
 
-export class ManagerCreateTestCenterComponent {
+export class ManagerCreateTestCenterComponent implements OnInit {
+
+  testCentre: TestCentre;
+  private mode = 'create';
+  private testCentreId: string;
+
+  constructor(public testCentreService: TestCentreService, public route: ActivatedRoute){}
+
+  ngOnInit(){
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if(paramMap.has('postId')) {
+        this.mode = 'edit';
+        this.testCentreId = paramMap.get('testCentreId');
+        this.testCentre = this.testCentreService.getTestcentre(this.testCentreId);
+
+      } else {
+        this.mode = 'create';
+        this.testCentreId = null;
+      }
+    });
+  }
+
   onCreateProfile(form: NgForm){
     if (form.invalid){
       return;
     }
+    this.testCentreService.addTestCentre(form.value.testcentrename);
+    form.resetForm();
   }
 }
